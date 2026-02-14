@@ -1,6 +1,10 @@
-The MQ REST API supports routing MQSC commands from a local **gateway** queue
-manager to a remote **target** queue manager over MQ channels. This is the same
-mechanism used by `runmqsc -w` and the MQ Console.
+The MQ REST API is available on all supported IBM MQ platforms (Linux, AIX,
+Windows, z/OS, and IBM i). The library is developed and tested against the
+**Linux** implementation.
+
+In enterprise environments, a **gateway queue manager** can route MQSC commands
+to remote queue managers via MQ channels — the same mechanism used by
+`runmqsc -w` and the MQ Console.
 
 When a gateway queue manager is configured on the session:
 
@@ -23,3 +27,10 @@ Client                     Gateway QM (QM1)              Target QM (QM2)
   │                              │<─────────────────────────────│
   │<─────────────────────────────│                              │
 ```
+
+### Prerequisites
+
+- The gateway queue manager must have a running REST API.
+- MQ channels must be configured between the gateway and target queue managers.
+- A QM alias (QREMOTE with empty RNAME) must map the target QM name to the
+  correct transmission queue on the gateway.
