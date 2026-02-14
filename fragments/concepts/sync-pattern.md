@@ -1,32 +1,77 @@
-The sync pattern provides bulk declarative configuration management. Given a
-list of desired object definitions, sync compares them against the current state
-of the queue manager and applies the minimum set of changes to reach the desired
-state.
+## The fire-and-forget problem
 
-### Operations
+All MQSC `START` and `STOP` commands are fire-and-forget — they return
+immediately without waiting for the object to reach its target state. In
+practice, tooling that provisions infrastructure needs to wait until a channel
+is `RUNNING` or a listener is `STOPPED` before proceeding to the next step.
+Writing polling loops by hand is error-prone and clutters business logic with
+retry mechanics.
 
-For each object in the desired state:
+## The sync pattern
 
-- **Create**: Object does not exist on the queue manager — issue DEFINE.
-- **Alter**: Object exists but attributes differ — issue ALTER.
-- **Unchanged**: Object already matches — no action needed.
+The sync methods wrap fire-and-forget START/STOP commands with a polling loop
+that issues `DISPLAY *STATUS` until the object reaches a stable state or the
+timeout expires.
 
-Objects that exist on the queue manager but are **not** in the desired state
-list can optionally be deleted (controlled by a configuration flag).
+Each call returns a sync result describing what happened:
 
-### Configuration options
+- **Operation**: STARTED, STOPPED, or RESTARTED.
+- **Polls**: Number of status polls issued.
+- **Elapsed time**: Wall-clock seconds from command to confirmation.
 
-| Option | Description |
-| --- | --- |
-| Object type | The MQSC qualifier to sync (e.g. `QLOCAL`, `CHANNEL`) |
-| Desired state | List of object definitions with name and attributes |
-| Delete extras | Whether to delete objects not in the desired list |
-| Name filter | Pattern to limit which existing objects are compared |
+## Configuration
 
-### Result
+Polling behaviour is controlled by two parameters:
 
-The sync result contains a summary of all operations performed:
+| Parameter | Default | Description |
+| --- | --- | --- |
+| Timeout | 30 seconds | Maximum wait before raising a timeout error |
+| Poll interval | 1 second | Seconds between status polls |
 
-- Number of objects created, altered, unchanged, and deleted
-- Per-object details for diagnostic review
-- Any errors encountered during the process
+## Timeout on expiry
+
+If the object does not reach the target state within the configured timeout, a
+timeout error is raised. The error includes the object name, the attempted
+operation, and the elapsed time — enabling callers to handle partial progress
+or escalate to an operator.
+
+## Restart convenience
+
+The restart methods perform a synchronous stop followed by a synchronous start.
+Each phase gets the full timeout independently — the worst case is twice the
+configured timeout.
+
+The returned result reports **total** polls and **total** elapsed time across
+both phases.
+
+## Available object types
+
+The sync pattern is available for object types that have start/stop semantics:
+
+| Object type | START/STOP qualifier | Status qualifier |
+| --- | --- | --- |
+| Channel | `CHANNEL` | `CHSTATUS` |
+| Listener | `LISTENER` | `LSSTATUS` |
+| Service | `SERVICE` | `SVSTATUS` |
+
+Each object type supports start, stop, and restart — nine methods in total.
+
+## Channel stop edge case
+
+When a channel stops, its `CHSTATUS` record may disappear entirely — the
+`DISPLAY CHSTATUS` response returns no rows. The sync methods treat an empty
+status result as successfully stopped for channels. Listener and service status
+records are always present, so empty results are not treated as stopped for
+those object types.
+
+## Status detection
+
+The polling loop checks the `STATUS` attribute in the `DISPLAY *STATUS`
+response. The target values are:
+
+- **Start**: `RUNNING`
+- **Stop**: `STOPPED`
+
+The status key is checked using both the mapped developer-friendly name and the
+raw MQSC name, so polling works correctly regardless of whether attribute
+mapping is enabled or disabled.
