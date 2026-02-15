@@ -81,9 +81,17 @@ tools as CI hard gates:
 
 - **CodeQL**: GitHub's semantic code analysis runs on every pull request,
   detecting injection flaws, insecure data handling, and other
-  vulnerability classes.
+  vulnerability classes via deep data flow and taint tracking.
+- **Semgrep**: Pattern-based SAST provides custom security rule coverage
+  across all languages, complementing CodeQL with broader language
+  support and project-specific rule authoring.
+- **Trivy**: Filesystem vulnerability scanning detects known CVEs in
+  dependencies, lock files, and configuration files across all
+  language ecosystems.
 - **Dependency auditing**: Every build audits runtime dependencies for
-  known CVEs. Vulnerable dependencies fail the pipeline.
+  known CVEs using language-native tools (pip-audit, govulncheck,
+  Maven dependency verification). Vulnerable dependencies fail the
+  pipeline.
 - **License compliance**: Dependency licenses are checked against an
   allow-list of approved open-source licenses. Unapproved licenses
   fail the build.
@@ -128,11 +136,13 @@ merging:
 4. **test-and-validate** — Full validation pipeline across multiple
    language/runtime versions
 5. **codeql** — GitHub semantic security analysis
-6. **integration-tests** — End-to-end tests against containerized MQ
+6. **trivy** — Filesystem vulnerability scanning across all ecosystems
+7. **semgrep** — Pattern-based SAST with language-specific rulesets
+8. **integration-tests** — End-to-end tests against containerized MQ
 
 A **docs-only** detection job allows documentation changes to skip
-test-and-validate, CodeQL, and integration tests while still requiring
-standards compliance and dependency audit.
+test-and-validate, CodeQL, Trivy, Semgrep, and integration tests while
+still requiring standards compliance and dependency audit.
 
 ## The `Co-Authored-By` convention
 

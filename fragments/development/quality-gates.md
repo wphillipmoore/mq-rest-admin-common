@@ -61,8 +61,8 @@ of which must pass for a PR to merge.
 
 A preliminary job detects whether the changeset is docs-only (as defined
 by the repository). When docs-only is detected, the test-intensive jobs
-(test-and-validate, CodeQL, integration tests) are skipped, while
-standards-compliance and dependency-audit still run.
+(test-and-validate, CodeQL, Trivy, Semgrep, integration tests) are
+skipped, while standards-compliance and dependency-audit still run.
 
 ### standards-compliance
 
@@ -134,9 +134,25 @@ The validation pipeline includes (in order):
 
 ### CodeQL
 
-GitHub's semantic code analysis runs on every non-docs PR. It detects
-injection flaws, insecure data handling, and other vulnerability classes
-specific to each language.
+GitHub's semantic code analysis runs on every non-docs PR. CodeQL
+performs deep data flow and taint tracking analysis to detect injection
+flaws, insecure data handling, and other vulnerability classes specific
+to each language.
+
+### Trivy
+
+Aqua Security's Trivy runs a filesystem vulnerability scan on every
+non-docs PR. It detects known CVEs in dependencies, lock files, and
+configuration files across all language ecosystems, complementing the
+language-specific scanners in the dependency-audit job with broader
+cross-ecosystem coverage.
+
+### Semgrep
+
+Semgrep runs pattern-based Static Application Security Testing (SAST)
+on every non-docs PR. It complements CodeQL by providing broader
+language coverage and support for custom security rules. Each language
+repo configures Semgrep with language-specific rulesets.
 
 ### integration-tests
 
