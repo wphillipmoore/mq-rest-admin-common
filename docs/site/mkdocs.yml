@@ -107,5 +107,6 @@ nav:
       - usage: mappings/usage.md
   - Development:
       - Local MQ Container: development/local-mq-container.md
+      - Quality Gates: development/quality-gates.md
   - AI Engineering: ai-engineering.md
   - Language Libraries: languages.md
