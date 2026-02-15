@@ -49,8 +49,8 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.snippets:
       base_path:
-        - docs
-        - ../../fragments
+        - fragments
+        - docs/site/docs
   - tables
   - toc:
       permalink: true
