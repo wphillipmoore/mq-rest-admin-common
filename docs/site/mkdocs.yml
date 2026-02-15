@@ -108,7 +108,4 @@ nav:
   - Development:
       - Local MQ Container: development/local-mq-container.md
   - AI Engineering: ai-engineering.md
-  - Language Libraries:
-      - Java: https://wphillipmoore.github.io/mq-rest-admin-java/
-      - Python: https://wphillipmoore.github.io/mq-rest-admin-python/
-      - Go: https://wphillipmoore.github.io/mq-rest-admin-go/
+  - Language Libraries: languages.md
