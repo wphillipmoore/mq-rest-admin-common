@@ -1,0 +1,68 @@
+# listener
+
+Attribute mapping reference for the `listener` qualifier.
+
+Related MQSC commands: `ALTER LISTENER`, `DEFINE LISTENER`, `DELETE LISTENER`, `DISPLAY LISTENER`, `START LISTENER`, `STOP LISTENER`
+
+## Request key map
+
+| Friendly name | MQSC parameter |
+| --- | --- |
+| `adapter` | `ADAPTER` |
+| `backlog` | `BACKLOG` |
+| `command_scope` | `CMDSCOPE` |
+| `commands` | `COMMANDS` |
+| `description` | `DESCR` |
+| `ignore_state` | `IGNSTATE` |
+| `inbound_disposition` | `INDISP` |
+| `ip_address` | `IPADDR` |
+| `like` | `LIKE` |
+| `local_name` | `LOCLNAME` |
+| `lu_name` | `LUNAME` |
+| `netbios_names` | `NTBNAMES` |
+| `port` | `PORT` |
+| `sessions` | `SESSIONS` |
+| `socket` | `SOCKET` |
+| `start_mode` | `CONTROL` |
+| `transaction_program_name` | `TPNAME` |
+| `transport_type` | `TRPTYPE` |
+
+## Response key map
+
+| MQSC parameter | Friendly name |
+| --- | --- |
+| `ADAPTER` | `adapter` |
+| `ALTDATE` | `alteration_date` |
+| `ALTTIME` | `alteration_time` |
+| `BACKLOG` | `backlog` |
+| `COMMANDS` | `commands` |
+| `CONTROL` | `start_mode` |
+| `DESCR` | `description` |
+| `IPADDR` | `ip_address` |
+| `LISTENER` | `listener_name` |
+| `LOCLNAME` | `local_name` |
+| `NTBNAMES` | `netbios_names` |
+| `PORT` | `port` |
+| `SESSIONS` | `sessions` |
+| `SOCKET` | `socket` |
+| `TPNAME` | `transaction_program_name` |
+| `TRPTYPE` | `transport_type` |
+
+## Request key-value map
+
+### noreplace
+
+| Friendly value | MQSC key | MQSC value |
+| --- | --- | --- |
+| `yes` | `REPLACE` | `NO` |
+
+### replace
+
+| Friendly value | MQSC key | MQSC value |
+| --- | --- | --- |
+| `no` | `REPLACE` | `NO` |
+| `yes` | `REPLACE` | `YES` |
+
+---
+
+*Auto-generated from `mapping-data.json` by `scripts/dev/generate_mapping_docs.py`.*
