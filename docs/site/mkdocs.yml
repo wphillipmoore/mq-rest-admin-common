@@ -1,0 +1,55 @@
+site_name: mq-rest-admin-common
+site_url: https://wphillipmoore.github.io/mq-rest-admin-common/
+site_description: Shared documentation fragments and canonical mapping data for the mq-rest-admin project family
+repo_url: https://github.com/wphillipmoore/mq-rest-admin-common
+repo_name: mq-rest-admin-common
+edit_uri: ""
+
+strict: true
+
+docs_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+    - search.suggest
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path:
+        - docs
+        - ../../fragments
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
