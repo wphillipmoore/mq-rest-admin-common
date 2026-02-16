@@ -30,3 +30,5 @@ mq-rest-admin project family.
 - [mq-rest-admin-java](https://github.com/wphillipmoore/mq-rest-admin-java) — Java
 - [mq-rest-admin-python](https://github.com/wphillipmoore/mq-rest-admin-python) — Python
 - [mq-rest-admin-go](https://github.com/wphillipmoore/mq-rest-admin-go) — Go
+- [mq-rest-admin-ruby](https://github.com/wphillipmoore/mq-rest-admin-ruby) — Ruby (Work in Progress)
+- [mq-rest-admin-rust](https://github.com/wphillipmoore/mq-rest-admin-rust) — Rust (Work in Progress)
