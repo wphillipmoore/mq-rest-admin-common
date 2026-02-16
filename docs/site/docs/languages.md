@@ -9,7 +9,7 @@ for its language.
 ## Java
 
 **Repository**: [mq-rest-admin-java](https://github.com/wphillipmoore/mq-rest-admin-java)
-| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-java](https://wphillipmoore.github.io/mq-rest-admin-java/)
+| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-java](https://wphillipmoore.github.io/mq-rest-admin-java/1.1/)
 
 - Maven coordinates: `io.github.wphillipmoore:mq-rest-admin`
 - Zero runtime dependencies beyond Gson
@@ -19,7 +19,7 @@ for its language.
 ## Python
 
 **Repository**: [mq-rest-admin-python](https://github.com/wphillipmoore/mq-rest-admin-python)
-| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-python](https://wphillipmoore.github.io/mq-rest-admin-python/)
+| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-python](https://wphillipmoore.github.io/mq-rest-admin-python/1.1/)
 
 - PyPI package: `pymqrest`
 - `httpx` transport with async support
@@ -28,7 +28,7 @@ for its language.
 ## Go
 
 **Repository**: [mq-rest-admin-go](https://github.com/wphillipmoore/mq-rest-admin-go)
-| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-go](https://wphillipmoore.github.io/mq-rest-admin-go/)
+| **Documentation**: [wphillipmoore.github.io/mq-rest-admin-go](https://wphillipmoore.github.io/mq-rest-admin-go/1.1/)
 
 - Zero external dependencies (Go standard library only)
 - `context.Context` integration for all I/O methods
