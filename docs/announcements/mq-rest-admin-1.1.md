@@ -23,7 +23,7 @@ The 1.1 release brings Python, Java, and Go to feature parity:
 - **Java** (`mq-rest-admin`) &mdash; Maven Central. camelCase methods,
   `java.net.http.HttpClient` transport, zero runtime dependencies beyond
   Gson.
-- **Go** (`mqrest`) &mdash; Go standard library only. PascalCase
+- **Go** (`mqrestadmin`) &mdash; Go standard library only. PascalCase
   methods, `context.Context` on all I/O, zero external dependencies.
 
 All three wrap the `runCommandJSON` REST endpoint. No C client library
@@ -127,7 +127,7 @@ HTTPS.
 - `java.net.http.HttpClient` transport
 - Zero runtime dependencies beyond Gson
 
-**Go** (`mqrest`)
+**Go** (`mqrestadmin`)
 
 - Go standard library only, zero external dependencies
 - PascalCase method names (`DisplayQueue()`, `EnsureQlocal()`)
