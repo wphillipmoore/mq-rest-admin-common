@@ -75,10 +75,10 @@ managers through the REST API, now available in three languages.
 ### From one library to three
 
 When I released pymqrest earlier this year, it was a single Python
-library. The response from the MQ community made it clear there was
-appetite for the same approach in other languages. The 1.1 release
-delivers on that: Python, Java, and Go now share feature parity, all
-built on the same architecture and the same canonical mapping data.
+library. I wanted to see the same approach available across as many
+modern languages as possible. The 1.1 release delivers on that:
+Python, Java, and Go now share feature parity, all built on the same
+architecture and the same canonical mapping data.
 
 ### One mapping, every language
 
