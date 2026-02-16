@@ -136,10 +136,10 @@ HTTPS.
 ### What's coming next
 
 Ruby and Rust ports are already under way &mdash; both repositories are
-public on GitHub. The shared architecture makes adding new languages
-straightforward: the mapping data, command coverage, and ensure
-semantics are defined once in the common repository and consumed by each
-language implementation.
+public on GitHub. Because every implementation shares the same API shape and semantics
+&mdash; the same command coverage, the same ensure behaviour, the same
+attribute mappings &mdash; adding a new language is primarily a matter
+of expressing those patterns idiomatically.
 
 If your language isn't covered yet, I'd genuinely like to hear about it.
 Open an issue on the
