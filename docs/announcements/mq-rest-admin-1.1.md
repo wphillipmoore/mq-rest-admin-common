@@ -85,10 +85,14 @@ architecture and the same canonical mapping data.
 At the heart of the project is `mapping-data.json`, maintained in the
 shared `mq-rest-admin-common` repository. This single file defines the
 bidirectional mappings between terse MQSC attribute tokens (`CURDEPTH`,
-`MAXDEPTH`, `DEFPSIST`) and developer-friendly names idiomatic to each
-language (`current_queue_depth` in Python, `currentQueueDepth` in Java,
-`CurrentQueueDepth` in Go). When a mapping is added or corrected, every
-library picks it up automatically.
+`MAXDEPTH`, `DEFPSIST`) and readable `snake_case` names
+(`current_queue_depth`, `max_queue_depth`, `default_persistence`). The
+attribute mappings are language-neutral &mdash; every library uses the
+same `snake_case` names. Method names follow each language's conventions
+(`display_queue()` in Python, `displayQueue()` in Java,
+`DisplayQueue()` in Go), but the mapped attributes are identical across
+all three. When a mapping is added or corrected, every library picks it
+up automatically.
 
 ### What each library provides
 
