@@ -36,6 +36,8 @@ nothing to compile. Each library provides:
   (`CURDEPTH`, `DEFPSIST`) and idiomatic names for each language
 - **Idempotent ensure methods** for 16 object types: define if missing,
   alter only what changed, skip when already correct
+- **Synchronous start/stop methods** that poll until the requested
+  state is reached
 - **Flexible authentication**: mutual TLS client certificates, LTPA
   token, and HTTP Basic
 
@@ -104,6 +106,8 @@ HTTPS.
   level
 - **Idempotent ensure methods** for 16 object types: define if missing,
   alter only what changed, no-op when already correct
+- **Synchronous start/stop methods** that poll until the requested
+  state is reached
 - **Flexible authentication**: mutual TLS client certificates, LTPA
   token login, and HTTP Basic
 
