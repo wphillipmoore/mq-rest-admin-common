@@ -26,8 +26,8 @@ The 1.1 release brings Python, Java, and Go to feature parity:
 - **Go** (`mqrest`) &mdash; Go standard library only. PascalCase
   methods, `context.Context` on all I/O, zero external dependencies.
 
-All three wrap the `runCommandJSON` REST endpoint that ships with
-MQ 9.4. No C client library to install, no platform-specific binaries,
+All three wrap the `runCommandJSON` REST endpoint. No C client library
+to install, no platform-specific binaries,
 nothing to compile. Each library provides:
 
 - **130+ command methods** covering the full MQSC verb set (DISPLAY,
@@ -96,8 +96,7 @@ up automatically.
 
 ### What each library provides
 
-All three libraries wrap the `runCommandJSON` REST endpoint introduced
-in MQ 9.4. There is no C client dependency &mdash; everything runs over
+All three libraries wrap the `runCommandJSON` REST endpoint. There is no C client dependency &mdash; everything runs over
 HTTPS.
 
 - **130+ command methods** covering the full MQSC verb set
