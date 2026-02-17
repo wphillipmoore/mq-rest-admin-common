@@ -65,7 +65,65 @@ For the backstory on how this started, see:
 
 ---
 
-## Medium version (LinkedIn, IBM community, mailing lists)
+## Medium version (LinkedIn)
+
+**Announcing mq-rest-admin 1.1: IBM MQ administration libraries for
+Python, Java, and Go**
+
+Earlier this year I released pymqrest, a Python library for
+administering IBM MQ queue managers through the REST API. I wanted to
+see the same approach available across as many modern languages as
+possible. The 1.1 release delivers on that: Python, Java, and Go now
+share feature parity, all built on the same architecture.
+
+All three libraries wrap the runCommandJSON REST endpoint. No C client
+library, no platform-specific binaries, nothing to compile. Each
+provides:
+
+- 130+ command methods covering the full MQSC verb set
+- Automatic attribute mapping between terse MQSC tokens and readable
+  snake_case names, shared across every language
+- Idempotent ensure methods for 16 object types
+- Synchronous start/stop methods that poll until the target state is
+  reached
+- Flexible authentication: mutual TLS, LTPA token, and HTTP Basic
+
+At the heart of the project is a shared mapping-data.json that defines
+bidirectional translations between MQSC attributes and developer-friendly
+names. Method names follow each language's conventions (display_queue()
+in Python, displayQueue() in Java, DisplayQueue() in Go), but the
+mapped attributes are identical everywhere.
+
+Language highlights:
+
+Python (pymqrest) -- pip install pymqrest. httpx with async, 100%
+branch coverage, strict mypy + ty typing.
+
+Java (mq-rest-admin) -- Maven Central. java.net.http.HttpClient, zero
+dependencies beyond Gson.
+
+Go (mqrestadmin) -- Standard library only, zero external dependencies,
+context.Context on all I/O.
+
+Ruby and Rust ports are already under way. Because every implementation
+shares the same API shape and semantics, adding a new language is
+primarily a matter of expressing those patterns idiomatically. If your
+language isn't covered, open an issue -- I'd like to hear what you need.
+
+Some of you may remember the Perl5 MQSeries module on CPAN. I
+maintained that years ago, and this project picks up that thread. Seeing
+it grow from one library to a multi-language family has been deeply
+satisfying. Full backstory: <https://the-infrastructure-mindset.ghost.io/building-pymqrest-ai-production-library/>
+
+Links:
+Python: <https://github.com/wphillipmoore/mq-rest-admin-python>
+Java: <https://github.com/wphillipmoore/mq-rest-admin-java>
+Go: <https://github.com/wphillipmoore/mq-rest-admin-go>
+Common: <https://github.com/wphillipmoore/mq-rest-admin-common>
+
+---
+
+## Long version (IBM community, mailing lists)
 
 **Announcing mq-rest-admin 1.1: IBM MQ administration libraries for
 Python, Java, and Go**
@@ -193,10 +251,10 @@ expansion.
 "Show HN: mq-rest-admin &mdash; IBM MQ admin libraries for Python, Java,
 and Go (no C client needed)".
 
-**LinkedIn**: Use the medium version. The multi-language expansion and
-personal history angle work well here.
+**LinkedIn**: Use the medium version (fits within the 3,000 character
+post limit).
 
-**IBM Community / MQ forums**: Use the medium version. This audience
+**IBM Community / MQ forums**: Use the long version. This audience
 knows MQ deeply and will appreciate the technical specifics about shared
 mapping data and the `runCommandJSON` approach.
 
