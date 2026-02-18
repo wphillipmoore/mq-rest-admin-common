@@ -157,7 +157,7 @@ repo configures Semgrep with language-specific rulesets.
 ### integration-tests
 
 End-to-end tests run against containerized IBM MQ queue managers
-provisioned by the `mq-dev-environment` repository. These tests issue
+provisioned by the `mq-rest-admin-dev-environment` repository. These tests issue
 real MQSC commands through the REST API and verify that:
 
 - Mapping data correctly translates between friendly names and MQ

@@ -5,12 +5,12 @@ development and integration testing.
 
 - Docker Desktop or compatible Docker Engine.
 - IBM MQ container image access (license acceptance required).
-- The `mq-dev-environment` repository cloned as a sibling directory
-  (`../mq-dev-environment`), or set `MQ_DEV_ENV_PATH` to its location.
+- The `mq-rest-admin-dev-environment` repository cloned as a sibling directory
+  (`../mq-rest-admin-dev-environment`), or set `MQ_DEV_ENV_PATH` to its location.
 
 ## Configuration
 
-The Docker Compose file in the `mq-dev-environment` repository runs two
+The Docker Compose file in the `mq-rest-admin-dev-environment` repository runs two
 queue managers on a shared network (`mq-dev-net`):
 
 | Setting | QM1 | QM2 |
@@ -61,7 +61,7 @@ namelists, listeners, processes) plus cross-QM objects for communicating
 with QM2. QM2 receives a smaller set of objects plus the reciprocal
 cross-QM definitions.
 
-The seed scripts are maintained in the `mq-dev-environment` repository
+The seed scripts are maintained in the `mq-rest-admin-dev-environment` repository
 at `seed/base-qm1.mqsc` and `seed/base-qm2.mqsc`. Both use `REPLACE`
 so they can be re-run at any time without side effects.
 
@@ -84,7 +84,7 @@ so they can be re-run at any time without side effects.
 | `MQ_ADMIN_USER` | `mqadmin` | Admin username |
 | `MQ_ADMIN_PASSWORD` | `mqadmin` | Admin password |
 | `MQ_IMAGE` | `icr.io/ibm-messaging/mq:latest` | Container image |
-| `MQ_DEV_ENV_PATH` | `../mq-dev-environment` | Path to mq-dev-environment project |
+| `MQ_DEV_ENV_PATH` | `../mq-rest-admin-dev-environment` | Path to mq-rest-admin-dev-environment project |
 
 ## Gateway routing
 
@@ -119,7 +119,7 @@ If the REST API is not reachable, ensure the embedded web server is
 binding to all interfaces:
 
 ```bash
-docker compose -f ../mq-dev-environment/config/docker-compose.yml exec -T qm1 \
+docker compose -f ../mq-rest-admin-dev-environment/config/docker-compose.yml exec -T qm1 \
     setmqweb properties -k httpHost -v "*"
 ```
 
