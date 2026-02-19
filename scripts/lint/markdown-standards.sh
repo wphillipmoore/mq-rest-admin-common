@@ -1,27 +1,39 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Collect standard docs (structural checks + markdownlint).
 files=()
 while IFS= read -r file; do
   files+=("$file")
-done < <(find docs -type f -name "*.md" -print)
+done < <(find docs -path docs/sphinx -prune -o -path docs/site -prune -o -path docs/announcements -prune -o -type f -name "*.md" -print)
 
 if [[ -f README.md ]]; then
   files+=("README.md")
 fi
 
+# Collect doc-site files (markdownlint only — structural checks like
+# Table of Contents and single-H1 do not apply to pages built by
+# documentation site generators such as Sphinx, MkDocs, etc.).
+docsite_files=()
+for docsite_dir in docs/sphinx docs/site; do
+  if [[ -d "$docsite_dir" ]]; then
+    while IFS= read -r file; do
+      docsite_files+=("$file")
+    done < <(find "$docsite_dir" -type f -name "*.md")
+  fi
+done
+
+all_files=("${files[@]}" ${docsite_files[@]+"${docsite_files[@]}"})
+
+# CHANGELOG.md gets markdownlint only — no structural checks (no TOC,
+# multiple H2 headings are expected, heading hierarchy differs).
 if [[ -f CHANGELOG.md ]]; then
-  files+=("CHANGELOG.md")
+  all_files+=("CHANGELOG.md")
 fi
 
-if [[ ${#files[@]} -eq 0 ]]; then
+if [[ ${#all_files[@]} -eq 0 ]]; then
   echo "ERROR: no markdown files found to lint." >&2
   exit 2
-fi
-
-markdownlint_config=()
-if [[ -f ".markdownlint.yaml" ]]; then
-  markdownlint_config=(--config ".markdownlint.yaml")
 fi
 
 if command -v markdownlint >/dev/null 2>&1; then
@@ -32,8 +44,14 @@ else
 fi
 
 markdownlint_failed=0
-if ! "${markdownlint_cmd[@]}" "${markdownlint_config[@]}" "${files[@]}"; then
-  markdownlint_failed=1
+if [[ -f ".markdownlint.yaml" ]]; then
+  if ! "${markdownlint_cmd[@]}" --config ".markdownlint.yaml" "${all_files[@]}"; then
+    markdownlint_failed=1
+  fi
+else
+  if ! "${markdownlint_cmd[@]}" "${all_files[@]}"; then
+    markdownlint_failed=1
+  fi
 fi
 
 failed=0
