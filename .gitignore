@@ -16,5 +16,8 @@
 .cursorignore
 .cursorindexingignore
 
+# Python
+__pycache__/
+
 # Documentation
 docs/site/site/
