@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   docs-only:
-    name: docs-only
+    name: "ci: docs-only"
     runs-on: ubuntu-latest
     outputs:
       docs-only: ${{ steps.detect.outputs.docs-only }}
@@ -28,7 +28,7 @@ jobs:
         uses: wphillipmoore/standard-actions/actions/docs-only-detect@develop
 
   standards-compliance:
-    name: standards-compliance
+    name: "ci: standards-compliance"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
           commit-cutoff-sha: "6fce2fa"
 
   shellcheck:
-    name: shellcheck
+    name: "ci: shellcheck"
     runs-on: ubuntu-latest
     needs: docs-only
     steps:

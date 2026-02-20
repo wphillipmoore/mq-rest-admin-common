@@ -128,7 +128,7 @@ Local git hooks enforce standards before code reaches CI:
 Pull requests must pass all of the following independent CI jobs before
 merging:
 
-1. **standards-compliance** — Conventional Commit format, co-author
+1. **ci: standards-compliance** — Conventional Commit format, co-author
    validation, PR issue linkage, markdown standards, repository profile
 2. **dependency-audit** — Vulnerability scanning and license compliance
 3. **release-gates** — Version format and divergence checks for
@@ -140,7 +140,7 @@ merging:
 7. **semgrep** — Pattern-based SAST with language-specific rulesets
 8. **integration-tests** — End-to-end tests against containerized MQ
 
-A **docs-only** detection job allows documentation changes to skip
+A **ci: docs-only** detection job allows documentation changes to skip
 test-and-validate, CodeQL, Trivy, Semgrep, and integration tests while
 still requiring standards compliance and dependency audit.
 
