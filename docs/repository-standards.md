@@ -27,6 +27,7 @@
 - branching_model: library-release
 - release_model: artifact-publishing
 - supported_release_lines: current and previous
+- primary_language: none
 
 ## Local validation
 
