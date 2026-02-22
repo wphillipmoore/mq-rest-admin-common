@@ -35,4 +35,4 @@ jobs:
       - name: Deploy docs
         uses: wphillipmoore/standard-actions/actions/docs-deploy@develop
         with:
-          version-command: cat VERSION
+          version-command: cat VERSION | cut -d. -f1,2
