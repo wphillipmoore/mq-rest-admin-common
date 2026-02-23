@@ -105,6 +105,14 @@ This is the shared common repository for the mq-rest-admin project family, servi
 
 This is a documentation-only repository. There are no build or test commands.
 
+### Environment Setup
+
+```bash
+cd ../standard-tooling && uv sync                                                # Install standard-tooling
+export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH" # Put tools on PATH
+git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks               # Enable git hooks
+```
+
 ### Validation
 
 ```bash
@@ -178,14 +186,14 @@ This approach ensures all AI agents (Codex, Claude, etc.) have access to the sam
 
 ## Commit and PR Scripts
 
-**NEVER use raw `git commit`** — always use `scripts/dev/commit.sh`.
-**NEVER use raw `gh pr create`** — always use `scripts/dev/submit-pr.sh`.
+**NEVER use raw `git commit`** — always use `st-commit`.
+**NEVER use raw `gh pr create`** — always use `st-submit-pr`.
 
 ### Committing
 
 ```bash
-scripts/dev/commit.sh --type feat --message "add new mapping fragment" --agent claude
-scripts/dev/commit.sh --type docs --message "update mapping documentation" --agent claude
+st-commit --type feat --message "add new mapping fragment" --agent claude
+st-commit --type docs --message "update mapping documentation" --agent claude
 ```
 
 - `--type` (required): `feat|fix|docs|style|refactor|test|chore|ci|build`
@@ -197,8 +205,8 @@ scripts/dev/commit.sh --type docs --message "update mapping documentation" --age
 ### Submitting PRs
 
 ```bash
-scripts/dev/submit-pr.sh --issue 42 --summary "Add new mapping fragment for X"
-scripts/dev/submit-pr.sh --issue 42 --linkage Ref --summary "Update docs" --docs-only
+st-submit-pr --issue 42 --summary "Add new mapping fragment for X"
+st-submit-pr --issue 42 --linkage Ref --summary "Update docs" --docs-only
 ```
 
 - `--issue` (required): GitHub issue number (just the number)
