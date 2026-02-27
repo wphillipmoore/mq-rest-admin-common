@@ -9,6 +9,10 @@
          <lastmod>2026-02-27</lastmod>
     </url>
     <url>
+         <loc>https://wphillipmoore.github.io/mq-rest-admin-common/dev/changelog/</loc>
+         <lastmod>2026-02-27</lastmod>
+    </url>
+    <url>
          <loc>https://wphillipmoore.github.io/mq-rest-admin-common/dev/languages/</loc>
          <lastmod>2026-02-27</lastmod>
     </url>
@@ -206,6 +210,14 @@
     </url>
     <url>
          <loc>https://wphillipmoore.github.io/mq-rest-admin-common/dev/mappings/usage/</loc>
+         <lastmod>2026-02-27</lastmod>
+    </url>
+    <url>
+         <loc>https://wphillipmoore.github.io/mq-rest-admin-common/dev/releases/</loc>
+         <lastmod>2026-02-27</lastmod>
+    </url>
+    <url>
+         <loc>https://wphillipmoore.github.io/mq-rest-admin-common/dev/releases/v1.2.0/</loc>
          <lastmod>2026-02-27</lastmod>
     </url>
 </urlset>
