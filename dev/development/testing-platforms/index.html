@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://wphillipmoore.github.io/mq-rest-admin-common/dev/design/runcommand-endpoint/">
+        <link rel="canonical" href="https://wphillipmoore.github.io/mq-rest-admin-common/dev/development/testing-platforms/">
       
       
-        <link rel="prev" href="../rationale/">
+        <link rel="prev" href="../local-mq-container/">
       
       
-        <link rel="next" href="../nested-object-flattening/">
+        <link rel="next" href="../quality-gates/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>runCommandJSON Endpoint - mq-rest-admin-common</title>
+        <title>Testing Platforms - mq-rest-admin-common</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-runcommandjson-endpoint" class="md-skip">
+        <a href="#testing-platforms" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              runCommandJSON Endpoint
+              Testing Platforms
             
           </span>
         </div>
@@ -246,13 +246,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../design/" class="md-tabs__link">
           
   
   
@@ -288,11 +286,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../development/local-mq-container/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../local-mq-container/" class="md-tabs__link">
           
   
   
@@ -418,31 +418,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -460,7 +455,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -478,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../design/" class="md-nav__link">
         
   
   
@@ -506,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rationale/" class="md-nav__link">
+      <a href="../../design/rationale/" class="md-nav__link">
         
   
   
@@ -531,37 +526,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    runCommandJSON Endpoint
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../design/runcommand-endpoint/" class="md-nav__link">
         
   
   
@@ -577,81 +545,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#payload-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Payload structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Response structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Error handling
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#csrf-tokens" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CSRF tokens
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authentication
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -664,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nested-object-flattening/" class="md-nav__link">
+      <a href="../../design/nested-object-flattening/" class="md-nav__link">
         
   
   
@@ -1931,26 +1824,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1968,7 +1866,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1986,7 +1884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/local-mq-container/" class="md-nav__link">
+      <a href="../local-mq-container/" class="md-nav__link">
         
   
   
@@ -2011,10 +1909,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../development/testing-platforms/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing Platforms
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2030,6 +1955,153 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What we test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-we-do-not-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What we do not test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-zos-testing-is-not-feasible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why z/OS testing is not feasible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why z/OS testing is not feasible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container images
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-development-and-test-environment-zdt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Z Development and Test Environment (ZD&amp;T)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-xplore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Z Xplore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-wazi-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Wazi as a Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-trial-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Z Trial Program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-and-academic-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community and academic options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2042,7 +2114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../development/quality-gates/" class="md-nav__link">
+      <a href="../quality-gates/" class="md-nav__link">
         
   
   
@@ -2151,10 +2223,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#payload-structure" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Payload structure
+        Overview
       
     </span>
   </a>
@@ -2162,10 +2234,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response-structure" class="md-nav__link">
+  <a href="#what-we-test" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Response structure
+        What we test
       
     </span>
   </a>
@@ -2173,10 +2245,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#error-handling" class="md-nav__link">
+  <a href="#what-we-do-not-test" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Error handling
+        What we do not test
       
     </span>
   </a>
@@ -2184,21 +2256,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#csrf-tokens" class="md-nav__link">
+  <a href="#why-zos-testing-is-not-feasible" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CSRF tokens
+        Why z/OS testing is not feasible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why z/OS testing is not feasible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container images
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-development-and-test-environment-zdt" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authentication
+        IBM Z Development and Test Environment (ZD&amp;T)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-xplore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Z Xplore
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-wazi-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Wazi as a Service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ibm-z-trial-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IBM Z Trial Program
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-and-academic-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Community and academic options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
       
     </span>
   </a>
@@ -2222,104 +2366,114 @@
 
 
 
-<h1 id="the-runcommandjson-endpoint">The runCommandJSON Endpoint<a class="headerlink" href="#the-runcommandjson-endpoint" title="Permanent link">&para;</a></h1>
-<h2 id="payload-structure">Payload structure<a class="headerlink" href="#payload-structure" title="Permanent link">&para;</a></h2>
-<p>The IBM MQ administrative REST API provides a <code>runCommandJSON</code> endpoint that
-accepts MQSC commands as structured JSON:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POST /ibmmq/rest/v2/admin/action/qmgr/{qmgr}/mqsc
-</code></pre></div>
-<p>The request payload has this shape:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runCommandJSON&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DISPLAY&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;qualifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;QLOCAL&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY.QUEUE&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;DESCR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Updated description&quot;</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">&quot;responseParameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
-</code></pre></div>
+<h1 id="testing-platforms">Testing Platforms<a class="headerlink" href="#testing-platforms" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The mq-rest-admin libraries are tested against IBM MQ for Distributed
+Platforms (Linux, via container images). IBM also ships MQ for z/OS, a
+separate implementation that runs natively on the mainframe. This page
+documents the platform coverage gap and the research behind it.</p>
+<h2 id="what-we-test">What we test<a class="headerlink" href="#what-we-test" title="Permanent link">&para;</a></h2>
+<p>Integration tests run against the <code>icr.io/ibm-messaging/mq</code> container
+image, which provides IBM MQ Advanced for Developers on Linux. The
+containerized environment hosts two queue managers (QM1 and QM2) and
+exercises the full REST-based MQSC pathway end-to-end. See
+<a href="../local-mq-container/">Local MQ Container</a> for setup details.</p>
+<h2 id="what-we-do-not-test">What we do not test<a class="headerlink" href="#what-we-do-not-test" title="Permanent link">&para;</a></h2>
+<p>We do not test against z/OS queue managers. z/OS MQ is a distinct
+implementation from Distributed MQ, sharing the MQSC command interface
+but differing in platform-specific attributes, status values, and
+operational behaviour. The REST API surface is largely identical, but
+response payloads can differ in subtle ways.</p>
+<h2 id="why-zos-testing-is-not-feasible">Why z/OS testing is not feasible<a class="headerlink" href="#why-zos-testing-is-not-feasible" title="Permanent link">&para;</a></h2>
+<p>A thorough investigation (February 2026) evaluated every publicly
+available option for z/OS MQ access. None met the requirements for
+automated, CI/CD-ready testing in an open source project.</p>
+<h3 id="container-images">Container images<a class="headerlink" href="#container-images" title="Permanent link">&para;</a></h3>
+<p>IBM publishes MQ container images for amd64, ppc64le, and s390x.
+The s390x images run the <strong>distributed Linux</strong> build of MQ, not the
+z/OS variant. All images are licensed under the International License
+Agreement for Non-Warranted Programs, which restricts usage to a single
+developer and does not clearly permit automated CI/CD pipelines.</p>
+<h3 id="ibm-z-development-and-test-environment-zdt">IBM Z Development and Test Environment (ZD&amp;T)<a class="headerlink" href="#ibm-z-development-and-test-environment-zdt" title="Permanent link">&para;</a></h3>
+<p>ZD&amp;T emulates z/Architecture on x86 Linux and can run z/OS (and
+therefore z/OS MQ). Three editions exist:</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Required</th>
-<th>Description</th>
+<th>Edition</th>
+<th>Cost</th>
+<th>Open source viable</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>type</code></td>
-<td>Yes</td>
-<td>Always <code>"runCommandJSON"</code></td>
+<td>Learners</td>
+<td>~$120/year</td>
+<td>No (prohibits commercial use)</td>
 </tr>
 <tr>
-<td><code>command</code></td>
-<td>Yes</td>
-<td>MQSC verb: <code>DISPLAY</code>, <code>DEFINE</code>, <code>DELETE</code>, <code>ALTER</code>, etc.</td>
+<td>Personal</td>
+<td>~$5,000+</td>
+<td>Possibly (high cost barrier)</td>
 </tr>
 <tr>
-<td><code>qualifier</code></td>
-<td>Yes</td>
-<td>Object type: <code>QLOCAL</code>, <code>CHANNEL</code>, <code>QMGR</code>, etc.</td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td>No</td>
-<td>Object name or pattern. Omitted for queue manager commands.</td>
-</tr>
-<tr>
-<td><code>parameters</code></td>
-<td>No</td>
-<td>Request attributes as key-value pairs.</td>
-</tr>
-<tr>
-<td><code>responseParameters</code></td>
-<td>No</td>
-<td>List of attribute names to return.</td>
+<td>Enterprise</td>
+<td>Undisclosed</td>
+<td>Unknown</td>
 </tr>
 </tbody>
 </table>
-<h2 id="response-structure">Response structure<a class="headerlink" href="#response-structure" title="Permanent link">&para;</a></h2>
-<p>The response contains an array of command results:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;commandResponse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;completionCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;reasonCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;parameters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="nt">&quot;queue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MY.QUEUE&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="nt">&quot;curdepth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;maxdepth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="p">],</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nt">&quot;overallCompletionCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">  </span><span class="nt">&quot;overallReasonCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
-</code></pre></div>
-<p>Each item in <code>commandResponse</code> represents one matched object and carries its
-own completion/reason code pair plus a <code>parameters</code> map.</p>
-<h2 id="error-handling">Error handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
-<p>Errors are indicated by non-zero completion and reason codes at two levels:</p>
-<p><strong>Overall codes</strong>: <code>overallCompletionCode</code> and <code>overallReasonCode</code> on the
-top-level response. A non-zero overall code means the command itself failed.</p>
-<p><strong>Per-item codes</strong>: Each <code>commandResponse</code> item has <code>completionCode</code> and
-<code>reasonCode</code>. These indicate per-object errors (e.g. object not found in a
-wildcard display).</p>
-<p>For <code>DISPLAY</code> commands with no matches, MQ returns an error response with
-reason code 2085 (MQRC_UNKNOWN_OBJECT_NAME). The library intentionally treats
-this as an empty list rather than an exception.</p>
-<h2 id="csrf-tokens">CSRF tokens<a class="headerlink" href="#csrf-tokens" title="Permanent link">&para;</a></h2>
-<p>The MQ REST API requires a CSRF token header for non-GET requests. The library
-sends <code>ibm-mq-rest-csrf-token</code> with a default value. This can be overridden at
-session creation or omitted entirely.</p>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
-<p>The library supports HTTP Basic authentication as the primary method. The
-<code>Authorization</code> header is constructed from the username and password provided at
-session creation. Additional authentication methods (client certificates, LTPA
-tokens) may be supported depending on the language implementation.</p>
+<p>All editions require a separate z/OS license on top of the ZD&amp;T cost.</p>
+<h3 id="ibm-z-xplore">IBM Z Xplore<a class="headerlink" href="#ibm-z-xplore" title="Permanent link">&para;</a></h3>
+<p>A free, challenge-based learning platform that provides actual z/OS MQ
+access through web-based exercises. MQ is available in the Extended
+Challenges track. However, access is interactive only with no
+programmatic or API access suitable for automated testing.</p>
+<h3 id="ibm-wazi-as-a-service">IBM Wazi as a Service<a class="headerlink" href="#ibm-wazi-as-a-service" title="Permanent link">&para;</a></h3>
+<p>Cloud-based z/OS environment on IBM Cloud VPC. Provisions quickly and
+offers trial access. Pricing is not publicly disclosed and MQ
+availability is not explicitly confirmed.</p>
+<h3 id="ibm-z-trial-program">IBM Z Trial Program<a class="headerlink" href="#ibm-z-trial-program" title="Permanent link">&para;</a></h3>
+<p>No-cost cloud environment for evaluating IBM Z. Trial duration and
+terms are not specified, production use is not allowed, and MQ inclusion
+is unconfirmed.</p>
+<h3 id="community-and-academic-options">Community and academic options<a class="headerlink" href="#community-and-academic-options" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM Academic Initiative</td>
+<td>Restricted to accredited institutions</td>
+</tr>
+<tr>
+<td>Open Mainframe Project</td>
+<td>Educational resources only, no infrastructure</td>
+</tr>
+<tr>
+<td>Hercules emulator</td>
+<td>Running z/OS violates IBM licensing</td>
+</tr>
+</tbody>
+</table>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>There is no publicly available, free, CI/CD-ready option for testing
+against z/OS queue managers. The closest free option (IBM Z Xplore)
+provides z/OS MQ access only through a web-based challenge interface,
+not programmatic access suitable for automated pipelines.</p>
+<p>The project mitigates this gap by:</p>
+<ul>
+<li>Testing thoroughly against distributed MQ, which shares the MQSC
+  command interface and REST API surface with z/OS MQ.</li>
+<li>Maintaining mapping data that documents known platform differences
+  in attribute names and values.</li>
+<li>Accepting contributions and bug reports from users running against
+  z/OS queue managers in production.</li>
+</ul>
 
 
 
