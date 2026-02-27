@@ -58,6 +58,10 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Releases:
+      - Changelog: changelog.md
+      - Release Notes:
+          - releases/index.md
   - Design:
       - design/index.md
       - Rationale: design/rationale.md
@@ -106,13 +110,9 @@ nav:
       - topicstr: mappings/topicstr.md
       - tpstatus: mappings/tpstatus.md
       - usage: mappings/usage.md
-  - Releases:
-      - Changelog: changelog.md
-      - Release Notes:
-          - releases/index.md
   - Development:
       - Local MQ Container: development/local-mq-container.md
       - Testing Platforms: development/testing-platforms.md
       - Quality Gates: development/quality-gates.md
-  - AI Engineering: ai-engineering.md
+      - AI Engineering: ai-engineering.md
   - Language Libraries: languages.md
