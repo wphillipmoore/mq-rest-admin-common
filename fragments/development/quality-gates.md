@@ -57,14 +57,14 @@ The CI pipeline (`ci.yml`) runs on every pull request and on pushes to
 `develop` and `release/**`. It consists of several independent jobs, all
 of which must pass for a PR to merge.
 
-### docs-only detection
+### ci: docs-only detection
 
 A preliminary job detects whether the changeset is docs-only (as defined
 by the repository). When docs-only is detected, the test-intensive jobs
 (test-and-validate, CodeQL, Trivy, Semgrep, integration tests) are
 skipped, while standards-compliance and dependency-audit still run.
 
-### standards-compliance
+### ci: standards-compliance
 
 Validates repository standards using a shared composite action:
 
@@ -157,7 +157,7 @@ repo configures Semgrep with language-specific rulesets.
 ### integration-tests
 
 End-to-end tests run against containerized IBM MQ queue managers
-provisioned by the `mq-dev-environment` repository. These tests issue
+provisioned by the `mq-rest-admin-dev-environment` repository. These tests issue
 real MQSC commands through the REST API and verify that:
 
 - Mapping data correctly translates between friendly names and MQ

@@ -1,0 +1,38 @@
+name: CI - Test and Validate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  standards-compliance:
+    name: "ci: standards-compliance"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Validate standards
+        uses: wphillipmoore/standard-actions/actions/standards-compliance@develop
+
+  shellcheck:
+    name: "ci: shellcheck"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Run shellcheck
+        run: |
+          files=$(find scripts -type f \( -name '*.sh' -o -path '*/git-hooks/*' \) | sort)
+          if [ -n "$files" ]; then
+            echo "$files" | xargs shellcheck
+          else
+            echo "No shell scripts found."
+          fi

@@ -2,6 +2,14 @@
 
 Shared documentation fragments for the mq-rest-admin project family.
 
+## Table of Contents
+
+- [Purpose](#purpose)
+- [Fragment structure](#fragment-structure)
+- [What fragments contain](#what-fragments-contain)
+- [What fragments do NOT contain](#what-fragments-do-not-contain)
+- [How consuming sites include fragments](#how-consuming-sites-include-fragments)
+
 ## Purpose
 
 This repository contains language-neutral documentation fragments that are
@@ -13,7 +21,7 @@ composed into per-language documentation sites for:
 
 ## Fragment structure
 
-```
+```text
 fragments/
   architecture/           # Core architecture concepts
   mapping-pipeline/       # Attribute mapping pipeline

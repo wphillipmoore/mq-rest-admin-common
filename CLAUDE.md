@@ -2,6 +2,34 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Auto-memory policy
+
+**Do NOT use MEMORY.md.** Claude Code's auto-memory feature stores behavioral
+rules outside of version control, making them invisible to code review,
+inconsistent across repos, and unreliable across sessions. All behavioral rules,
+conventions, and workflow instructions belong in managed, version-controlled
+documentation (CLAUDE.md, AGENTS.md, skills, or docs/).
+
+If you identify a pattern, convention, or rule worth preserving:
+
+1. **Stop.** Do not write to MEMORY.md.
+2. **Discuss with the user** what you want to capture and why.
+3. **Together, decide** the correct managed location (CLAUDE.md, a skill file,
+   standards docs, or a new issue to track the gap).
+
+This policy exists because MEMORY.md is per-directory and per-machine — it
+creates divergent agent behavior across the multi-repo environment this project
+operates in. Consistency requires all guidance to live in shared, reviewable
+documentation.
+
+## Shell command policy
+
+**Do NOT use heredocs** (`<<EOF` / `<<'EOF'`) for multi-line arguments to CLI
+tools such as `gh`, `git commit`, or `curl`. Heredocs routinely fail due to
+shell escaping issues with apostrophes, backticks, and special characters.
+Always write multi-line content to a temporary file and pass it via `--body-file`
+or `--file` instead.
+
 ## Documentation Strategy
 
 This repository uses two complementary approaches for AI agent guidance:
@@ -77,6 +105,14 @@ This is the shared common repository for the mq-rest-admin project family, servi
 
 This is a documentation-only repository. There are no build or test commands.
 
+### Environment Setup
+
+```bash
+cd ../standard-tooling && uv sync                                                # Install standard-tooling
+export PATH="../standard-tooling/.venv/bin:../standard-tooling/scripts/bin:$PATH" # Put tools on PATH
+git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks               # Enable git hooks
+```
+
 ### Validation
 
 ```bash
@@ -147,6 +183,38 @@ This approach ensures all AI agents (Codex, Claude, etc.) have access to the sam
 - `CLAUDE.md` - This file, Claude Code-specific guidance
 - `docs/repository-standards.md` - Project-specific standards (included from AGENTS.md)
 - `docs/standards-and-conventions.md` - Canonical standards reference (includes external repo)
+
+## Commit and PR Scripts
+
+**NEVER use raw `git commit`** — always use `st-commit`.
+**NEVER use raw `gh pr create`** — always use `st-submit-pr`.
+
+### Committing
+
+```bash
+st-commit --type feat --message "add new mapping fragment" --agent claude
+st-commit --type docs --message "update mapping documentation" --agent claude
+```
+
+- `--type` (required): `feat|fix|docs|style|refactor|test|chore|ci|build`
+- `--message` (required): commit description
+- `--agent` (required): `claude` or `codex` — resolves the correct `Co-Authored-By` identity
+- `--scope` (optional): conventional commit scope
+- `--body` (optional): detailed commit body
+
+### Submitting PRs
+
+```bash
+st-submit-pr --issue 42 --summary "Add new mapping fragment for X"
+st-submit-pr --issue 42 --linkage Ref --summary "Update docs"
+```
+
+- `--issue` (required): GitHub issue number (just the number)
+- `--summary` (required): one-line PR summary
+- `--linkage` (optional, default: `Fixes`): `Fixes|Closes|Resolves|Ref`
+- `--title` (optional): PR title (default: most recent commit subject)
+- `--notes` (optional): additional notes
+- `--dry-run` (optional): print generated PR without executing
 
 ## Key References
 
