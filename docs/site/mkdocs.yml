@@ -14,6 +14,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.indexes
     - navigation.top
     - content.code.copy
     - search.highlight
@@ -105,6 +106,10 @@ nav:
       - topicstr: mappings/topicstr.md
       - tpstatus: mappings/tpstatus.md
       - usage: mappings/usage.md
+  - Releases:
+      - Changelog: changelog.md
+      - Release Notes:
+          - releases/index.md
   - Development:
       - Local MQ Container: development/local-mq-container.md
       - Testing Platforms: development/testing-platforms.md

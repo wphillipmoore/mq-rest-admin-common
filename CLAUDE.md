@@ -206,7 +206,7 @@ st-commit --type docs --message "update mapping documentation" --agent claude
 
 ```bash
 st-submit-pr --issue 42 --summary "Add new mapping fragment for X"
-st-submit-pr --issue 42 --linkage Ref --summary "Update docs" --docs-only
+st-submit-pr --issue 42 --linkage Ref --summary "Update docs"
 ```
 
 - `--issue` (required): GitHub issue number (just the number)
@@ -214,7 +214,6 @@ st-submit-pr --issue 42 --linkage Ref --summary "Update docs" --docs-only
 - `--linkage` (optional, default: `Fixes`): `Fixes|Closes|Resolves|Ref`
 - `--title` (optional): PR title (default: most recent commit subject)
 - `--notes` (optional): additional notes
-- `--docs-only` (optional): applies docs-only testing exception
 - `--dry-run` (optional): print generated PR without executing
 
 ## Key References
