@@ -22,7 +22,7 @@
 
 ## Repository profile
 
-- repository_type: documentation
+- repository_type: library
 - versioning_scheme: library
 - branching_model: library-release
 - release_model: artifact-publishing
