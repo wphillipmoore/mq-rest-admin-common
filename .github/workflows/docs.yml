@@ -24,10 +24,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.12
+      - name: Set up Python 3.14
         uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: "3.14"
 
       - name: Generate mapping docs
         run: python3 scripts/dev/generate_mapping_docs.py
