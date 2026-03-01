@@ -20,10 +20,37 @@ queue managers on a shared network (`mq-dev-net`):
 | REST API port | `9443` | `9444` |
 | Container name | `mq-dev-qm1` | `mq-dev-qm2` |
 
-!!! note
-    Some language repos use offset ports (e.g. 9453/9454, 1424/1425) to allow
-    running integration tests for multiple repos simultaneously without port
-    conflicts. See the language-specific notes below for details.
+!!! note "Port allocation"
+    Each language repo exports unique ports so that multiple repos can run
+    integration tests concurrently without conflicts.  The table below is the
+    **single source of truth** for port assignments.
+
+### Port allocation table
+
+**Local development ports** (used by `scripts/dev/mq_start.sh`):
+
+| Language | QM1 REST | QM2 REST | QM1 MQ | QM2 MQ |
+|----------|----------|----------|--------|--------|
+| Python   | 9443     | 9444     | 1414   | 1415   |
+| Java     | 9453     | 9454     | 1424   | 1425   |
+| Go       | 9463     | 9464     | 1434   | 1435   |
+| Ruby     | 9473     | 9474     | 1444   | 1445   |
+| Rust     | 9483     | 9484     | 1454   | 1455   |
+
+**CI ports** (per-version matrix, each version adds +2 from the language
+base):
+
+| Language | V1 REST     | V2 REST     | V3 REST     | V1 MQ       | V2 MQ       | V3 MQ       |
+|----------|-------------|-------------|-------------|-------------|-------------|-------------|
+| Python   | 9447 / 9448 | 9449 / 9450 | 9451 / 9452 | 1418 / 1419 | 1420 / 1421 | 1422 / 1423 |
+| Java     | 9453 / 9454 | 9455 / 9456 | 9457 / 9458 | 1426 / 1427 | 1428 / 1429 | 1430 / 1431 |
+| Go       | 9465 / 9466 | 9467 / 9468 | —           | 1436 / 1437 | 1438 / 1439 | —           |
+| Ruby     | 9475 / 9476 | 9477 / 9478 | 9479 / 9480 | 1446 / 1447 | 1448 / 1449 | 1450 / 1451 |
+| Rust     | 9485 / 9486 | 9487 / 9488 | —           | 1456 / 1457 | 1458 / 1459 | —           |
+
+Port ranges follow a **+10 offset** per language from the Python base (9443 /
+1414).  CI versions start at the language base + 4 for REST and + 4 for MQ,
+incrementing by 2 per additional version.
 
 Both queue managers share the same credentials:
 
