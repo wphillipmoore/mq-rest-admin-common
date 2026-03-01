@@ -216,6 +216,55 @@ st-submit-pr --issue 42 --linkage Ref --summary "Update docs"
 - `--notes` (optional): additional notes
 - `--dry-run` (optional): print generated PR without executing
 
+## Local MQ Environment
+
+Each language repo (Python, Java, Go, Ruby, Rust) includes thin wrapper
+scripts for managing a local MQ container environment. The actual Docker
+Compose configuration is owned by the
+[mq-rest-admin-dev-environment](https://github.com/wphillipmoore/mq-rest-admin-dev-environment)
+repository, which must be cloned as a sibling directory.
+
+### Prerequisite
+
+```bash
+git clone https://github.com/wphillipmoore/mq-rest-admin-dev-environment.git ../mq-rest-admin-dev-environment
+```
+
+### Lifecycle scripts (in each language repo)
+
+```bash
+./scripts/dev/mq_start.sh    # Start containerized MQ queue managers
+./scripts/dev/mq_seed.sh     # Seed deterministic test objects (DEV.* prefix)
+./scripts/dev/mq_verify.sh   # Verify REST-based MQSC responses
+./scripts/dev/mq_stop.sh     # Stop the queue managers
+./scripts/dev/mq_reset.sh    # Reset to clean state (removes data volumes)
+```
+
+Each language repo sets its own `COMPOSE_PROJECT_NAME` and unique port
+assignments to avoid collisions when running multiple environments
+simultaneously. Override the dev-environment path with `MQ_DEV_ENV_PATH`.
+
+### Integration test gate
+
+Integration tests are gated by the `MQ_REST_ADMIN_RUN_INTEGRATION`
+environment variable. When unset, integration tests are skipped. CI sets
+this automatically; for local runs, start MQ first, then export the variable:
+
+```bash
+./scripts/dev/mq_start.sh
+./scripts/dev/mq_seed.sh
+export MQ_REST_ADMIN_RUN_INTEGRATION=true
+# Run integration tests (language-specific command)
+```
+
+### Container details
+
+- Queue managers: `QM1` and `QM2`
+- Admin credentials: `mqadmin` / `mqadmin`
+- Read-only credentials: `mqreader` / `mqreader`
+- Object prefix: `DEV.*`
+- Ports are language-specific (see each repo's `scripts/dev/mq_start.sh`)
+
 ## Key References
 
 **Canonical Standards**: https://github.com/wphillipmoore/standards-and-conventions
