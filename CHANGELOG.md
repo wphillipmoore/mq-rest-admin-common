@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] - 2026-03-02
+
+### Bug fixes
+
+- add name_required to DELETE QLOCAL/QREMOTE/QALIAS/QMODEL (#131)
+
+### Documentation
+
+- align nav structure with language repos (#111)
+- add central port allocation table for all language repos (#125)
+- document local MQ environment scripts for AI agents (#139)
+
+### Features
+
+- add generation metadata and missing ALTER/DEFINE entries to mapping-data.json (#129)
+- add cross-repo documentation links fragment (#132)
+
 ## [1.2.0] - 2026-02-27
 
 ### Bug fixes
