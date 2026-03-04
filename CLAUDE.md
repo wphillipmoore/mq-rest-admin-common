@@ -33,7 +33,7 @@ git config core.hooksPath ../standard-tooling/scripts/lib/git-hooks             
 ### Validation
 
 ```bash
-markdownlint '**/*.md'    # Lint all Markdown files
+markdownlint .            # Lint all Markdown files
 ```
 
 ## Architecture
