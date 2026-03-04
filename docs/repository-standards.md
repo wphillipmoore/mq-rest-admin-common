@@ -32,7 +32,7 @@
 ## Local validation
 
 ```bash
-markdownlint '**/*.md'    # Lint all Markdown files
+markdownlint .            # Lint all Markdown files
 ```
 
 ## Merge strategy override
