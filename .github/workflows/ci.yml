@@ -14,12 +14,13 @@ jobs:
   standards-compliance:
     name: "ci: standards-compliance"
     runs-on: ubuntu-latest
+    container: ghcr.io/wphillipmoore/dev-docs:latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
       - name: Validate standards
-        uses: wphillipmoore/standard-actions/actions/standards-compliance@v1.1
+        uses: wphillipmoore/standard-actions/actions/standards-compliance@develop
 
   shellcheck:
     name: "ci: shellcheck"
